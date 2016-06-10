@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Akka.Actor;
+using Turnstile.CSharp.Actors;
+using Turnstile.CSharp.Messages;
 
 namespace Turnstile.CSharp
 {
@@ -10,6 +9,10 @@ namespace Turnstile.CSharp
     {
         static void Main(string[] args)
         {
+            var system = ActorSystem.Create("TurnstileSimulator");
+            var turnstileActor = system.ActorOf<TurnstileActor>("Turnstile");
+            turnstileActor.Tell(new PushBar());
+            Console.ReadLine();
         }
     }
 }
