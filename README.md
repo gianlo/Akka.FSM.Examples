@@ -97,6 +97,7 @@ The turnstile state machine can be represented by a [[state transition table]], 
 
 The FSM actor expects by definition only one state data type.
 When dealing with different state data types in different states, there are 2 possible patterns in C#:
+
 1. tuple up all possible states in a single concrete class
 2. define an empty interface and implement the extensions to the interface for the state data required in different states. This however means that you have to force a cast in your code to deal with the specific types.
 
