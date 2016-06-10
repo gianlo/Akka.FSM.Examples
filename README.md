@@ -18,7 +18,8 @@ To set up and use an FSM actor, code needs to be written to set up:
 * the behaviours of the FSM in each state 
 * and optionally what happens when a transition occurs
 
-Also timers (i.e. how long to stay in one state before transitioning to another state) can be associated with states, but it will not be discussed at this point.
+Also a timer (i.e. how long to stay in one state) can be associated with states via the timeout parameter. If no messages are received in that state within the timeout period, the actor will generate an FSM.StateTimeout message.
+That message can be handled within the relevant (i.e. for that state) When state function to guide a transition to a different state.  Or can be handled in general in the WhenUnhandled state function.
 
 
 ### StartWith
