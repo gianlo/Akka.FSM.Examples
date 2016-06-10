@@ -20,6 +20,8 @@ class TurnstileActor extends LoggingFSM[TurnstileStatus, Coins] {
   when(Unlocked) {
     case _ => throw new NotImplementedError()
   }
+
+  initialize()
 }
 
 sealed trait TurnstileStatus
